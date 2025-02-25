@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Apps Script Test</title>
+</head>
+<body>
+    <h1>Send Data to Google Sheets</h1>
+    <button onclick="sendData()">Send Test Data</button>
+    
+    <script>
+        function sendData() {
+            fetch("https://script.google.com/macros/s/AKfycbyRFWAjKVfV65cwlfUsKHXAlYEy-RBkDBgkWic3WWl1fikWBs0L0Ub0VYo4zLDWV0wm/exec", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    name: "Enes",
+                    age: 19
+                })
+            })
+            .then(response => response.json())
+            .then(data => console.log("Success:", data))
+            .catch(error => console.error("Error:", error));
+        }
+    </script>
+</body>
+</html>
