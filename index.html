@@ -11,9 +11,12 @@
     
     <script>
         function sendData() {
-            fetch("https://script.google.com/macros/s/AKfycbyRFWAjKVfV65cwlfUsKHXAlYEy-RBkDBgkWic3WWl1fikWBs0L0Ub0VYo4zLDWV0wm/exec", {
+            fetch("YOUR_WEB_APP_URL_HERE", {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
+                mode: "cors",  // Important: Ensures CORS is handled
+                headers: {
+                    "Content-Type": "application/json",
+                },
                 body: JSON.stringify({
                     name: "Enes",
                     age: 19
@@ -22,7 +25,6 @@
             .then(response => response.json())
             .then(data => console.log("Success:", data))
             .catch(error => console.error("Error:", error));
-        }
     </script>
 </body>
 </html>
